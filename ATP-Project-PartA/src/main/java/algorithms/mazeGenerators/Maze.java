@@ -16,7 +16,7 @@ public class Maze
 	 * @ordered
 	 */
 	
-	private int[][] map;
+	private char[][] map;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -41,8 +41,10 @@ public class Maze
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public Maze(){
-		super();
+	public Maze(char[][] map, Position sp, Position gp) {
+	    this.map = map;
+	    startPostion = sp;
+	    goalPosition = gp;
 	}
 
 	/**
@@ -53,14 +55,12 @@ public class Maze
 	 */
 	
 	public Position getStartPosition() {
-		// TODO implement me
-		return null;
+        return new Position(startPostion);
 	}
 
 
 	public Position getGoalPosition(){
-		//TODO implement me
-		return null;
+		return new Position(goalPosition);
 	}
 
 	/**
@@ -71,11 +71,12 @@ public class Maze
 	 */
 	
 	public void print() {
-		// TODO implement me
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++)
+                System.out.print(map[i][j]);
+            System.out.println();
+        }
 	}
-
-
-
 
 }
 

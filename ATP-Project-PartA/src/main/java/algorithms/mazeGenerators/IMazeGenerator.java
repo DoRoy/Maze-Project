@@ -16,7 +16,7 @@ public  interface IMazeGenerator
 	 * @ordered
 	 */
 	
-	public Maze generate(int col, int row) ;
+	public Maze generate(int rows, int cols) ;
 
 	/**
 	 * <!-- begin-user-doc -->

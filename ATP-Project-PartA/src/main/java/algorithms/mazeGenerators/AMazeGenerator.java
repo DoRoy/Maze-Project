@@ -1,5 +1,4 @@
 package algorithms.mazeGenerators;
-
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
@@ -14,7 +13,6 @@ public abstract class AMazeGenerator implements IMazeGenerator
 	 * @generated
 	 */
 	public AMazeGenerator(){
-		super();
 	}
 
 	/**
@@ -24,11 +22,7 @@ public abstract class AMazeGenerator implements IMazeGenerator
 	 * @ordered
 	 */
 	
-	public Maze generate(int col, int row) {
-		// TODO implement me
-		return null;
-	}
-
+	public abstract Maze generate(int rows, int cols) ;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -37,8 +31,11 @@ public abstract class AMazeGenerator implements IMazeGenerator
 	 */
 	
 	public long measureAlgorithmTimeMillis(int rows, int cols) {
-		// TODO implement me
-		return 0;
+		long start = System.currentTimeMillis();
+		generate(rows, cols);
+		long finished = System.currentTimeMillis();
+		System.out.println("Testing time: " + (finished - start) + " MilliSeconds");
+		return finished - start;
 	}
 
 }

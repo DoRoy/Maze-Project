@@ -18,5 +18,10 @@ public class SimpleMazeGenerator extends AMazeGenerator
 		super();
 	}
 
+	@Override
+	public Maze generate(int col, int row) {
+		return null;
+	}
+
 }
 
