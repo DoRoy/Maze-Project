@@ -6,26 +6,30 @@ package algorithms.search;
  * @generated
  */
 
-public class BestFirstSearch extends BreadthFirstSearch
+public class BreadthFirstSearch extends ASearchingAlgorithm
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public BestFirstSearch(){
+	public BreadthFirstSearch(){
 		super();
 	}
 
+	@Override
+	public Solution solve(ISearchable searchable) {
+		return null;
+	}
 
 	public String getName(){
 		return "";
 	}
 
-	public String getNumberOfNodesEvaluated(){
-		return "";
+	@Override
+	public String getNumberOfNodesEvaluated() {
+		return null;
 	}
-
 
 }
 

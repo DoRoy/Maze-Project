@@ -57,10 +57,7 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 * @ordered
 	 */
 	
-	public AState search(ISearchable searchable) {
-		// TODO implement me
-		return null;
-	}
+	public abstract Solution solve(ISearchable searchable) ;
 
 	/**
 	 * <!-- begin-user-doc -->

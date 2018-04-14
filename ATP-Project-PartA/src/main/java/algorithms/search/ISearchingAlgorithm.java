@@ -25,7 +25,11 @@ public  interface ISearchingAlgorithm
 	 * @ordered
 	 */
 	
-	public AState search(ISearchable searchable) ;
+	public Solution solve(ISearchable searchable) ;
+
+	public String getName();
+
+	public String getNumberOfNodesEvaluated();
 
 
 }

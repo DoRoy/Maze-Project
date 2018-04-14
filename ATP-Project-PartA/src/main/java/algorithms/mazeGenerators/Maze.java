@@ -52,8 +52,14 @@ public class Maze
 	 * @ordered
 	 */
 	
-	public Position gerStartPosition() {
+	public Position getStartPosition() {
 		// TODO implement me
+		return null;
+	}
+
+
+	public Position getGoalPosition(){
+		//TODO implement me
 		return null;
 	}
 
@@ -64,9 +70,12 @@ public class Maze
 	 * @ordered
 	 */
 	
-	public void Print() {
+	public void print() {
 		// TODO implement me
 	}
+
+
+
 
 }
 

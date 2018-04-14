@@ -26,7 +26,7 @@ public class SearchableMaze implements ISearchable
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public SearchableMaze(){
+	public SearchableMaze(Maze maze){
 		super();
 	}
 
