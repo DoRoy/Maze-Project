@@ -9,27 +9,9 @@ package algorithms.mazeGenerators;
 
 public class Position
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected Integer row;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected Integer col;
-
-
-
-	protected Position parent;
+	private Integer row;
+	private Integer col;
+	private Position parent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,16 +47,18 @@ public class Position
 		return row;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public int getColumnIndex() {
 		return col;
 	}
+
+	public String toString(){
+		return "{" + row +"," + col + "}";
+	}
+
+	public Position getParent() {
+		return new Position(parent);
+	}
+
 
 }
 

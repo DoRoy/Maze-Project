@@ -85,7 +85,7 @@ public class MyMazeGenerator extends AMazeGenerator
 			// if algorithm has resolved, mark end node
 			if (frontier.isEmpty()) {
 				maz[last.getRowIndex()][last.getColumnIndex()] = 'E';
-				goalPosition = new Position(last.getRowIndex(), last.getColumnIndex(), last.parent);
+				goalPosition = new Position(last.getRowIndex(), last.getColumnIndex(), last.getParent());
 			}
 		}
 
@@ -93,14 +93,6 @@ public class MyMazeGenerator extends AMazeGenerator
 		return new Maze(maz,startPosition,goalPosition);
 	}
 
-
-	public static void main(String[] args){
-		MyMazeGenerator mg = new MyMazeGenerator();
-		mg.measureAlgorithmTimeMillis(1000,1000);
-		//Maze m = mg.generate(50,60);
-		//m.print();
-
-	}
 }
 
 

@@ -34,7 +34,7 @@ public abstract class AMazeGenerator implements IMazeGenerator
 		long start = System.currentTimeMillis();
 		generate(rows, cols);
 		long finished = System.currentTimeMillis();
-		System.out.println("Testing time: " + (finished - start) + " MilliSeconds");
+		//System.out.println("Testing time: " + (finished - start) + " MilliSeconds");
 		return finished - start;
 	}
 

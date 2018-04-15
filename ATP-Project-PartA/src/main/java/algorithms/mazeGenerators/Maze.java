@@ -78,5 +78,12 @@ public class Maze
         }
 	}
 
+	public char getCharAt(int row, int col){
+		if ((row < map.length && col < map[0].length) && row >= 0 && col >= 0){
+			return map[row][col];
+		}
+		return '\0';
+	}
+
 }
 
