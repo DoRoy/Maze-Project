@@ -51,4 +51,7 @@ class MyMazeGeneratorTest {
                     "char at goalPosition: " + m.getCharAt(gp.getRowIndex(),gp.getColumnIndex())
                     + "goalPosition: " + gp);
     }
+
+
+    int x=0;
 }
