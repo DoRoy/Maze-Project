@@ -35,7 +35,8 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 * @generated
 	 */
 	public ASearchingAlgorithm(){
-		super();
+
+
 	}
 
 	/**

@@ -59,6 +59,15 @@ public class Position
 		return new Position(parent);
 	}
 
+	//ToDo Equals and HashCode
+	public boolean equals(Position other){
+		if (other.getRowIndex() == row && other.getColumnIndex()==col)
+			return true;
+		return false;
+	}
 
+	public int hashCode(){
+		return 0;
+	}
 }
 

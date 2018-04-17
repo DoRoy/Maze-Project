@@ -1,5 +1,6 @@
 package algorithms.search;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,8 +16,7 @@ public  interface ISearchable
 	 * @generated
 	 * @ordered
 	 */
-	
-	public List<AState> getAllPossibleStates(AState currentState) ;
+	public ArrayList<AState> getAllPossibleStates(AState currentState) ;
 
 	/**
 	 * <!-- begin-user-doc -->

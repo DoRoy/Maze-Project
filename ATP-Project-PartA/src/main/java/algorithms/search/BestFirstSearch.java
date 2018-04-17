@@ -14,7 +14,8 @@ public class BestFirstSearch extends BreadthFirstSearch
 	 * @generated
 	 */
 	public BestFirstSearch(){
-		super();
+
+
 	}
 
 

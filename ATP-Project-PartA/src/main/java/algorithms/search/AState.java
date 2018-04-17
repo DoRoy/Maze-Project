@@ -15,7 +15,6 @@ public abstract class AState
 	 * @generated
 	 */
 	public AState(){
-		super();
 	}
 
 	/**
@@ -25,10 +24,7 @@ public abstract class AState
 	 * @ordered
 	 */
 	
-	public boolean equals() {
-		// TODO implement me
-		return false;
-	}
+	public abstract boolean equals(AState aState) ;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -37,10 +33,9 @@ public abstract class AState
 	 * @ordered
 	 */
 	
-	public int hashCode() {
-		// TODO implement me
-		return 0;
-	}
+	public abstract int hashCode() ;
+
+	public abstract String toString();
 
 }
 

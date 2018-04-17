@@ -2,6 +2,8 @@ package algorithms.search;
 
 
 import algorithms.mazeGenerators.Maze;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +21,9 @@ public class SearchableMaze implements ISearchable
 	 * @ordered
 	 */
 	
-	protected Maze maze;
+	private Maze maze;
+	private MazeState startState;
+	private MazeState goalState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -27,7 +31,7 @@ public class SearchableMaze implements ISearchable
 	 * @generated
 	 */
 	public SearchableMaze(Maze maze){
-		super();
+
 	}
 
 	/**
@@ -36,10 +40,19 @@ public class SearchableMaze implements ISearchable
 	 * @generated
 	 * @ordered
 	 */
-	
-	public List<AState> getAllPossibleStates(AState currentState) {
-		// TODO implement me
-		return null;
+
+	//Todo Write this function
+	public ArrayList<AState> getAllPossibleStates(AState currentState) {
+		if (!(currentState instanceof MazeState)){
+			return null;
+		}
+		ArrayList<AState> list = new ArrayList<AState>();
+
+		// if (up == '0'), if(down == '0')
+
+		MazeState m = null;
+		list.add(m);
+		return list;
 	}
 
 	/**
@@ -50,8 +63,7 @@ public class SearchableMaze implements ISearchable
 	 */
 	
 	public AState getGoalState() {
-		// TODO implement me
-		return null;
+		return new MazeState(goalState);
 	}
 
 	/**
@@ -62,8 +74,7 @@ public class SearchableMaze implements ISearchable
 	 */
 	
 	public AState getStartState() {
-		// TODO implement me
-		return null;
+		return new MazeState(startState);
 	}
 
 }
