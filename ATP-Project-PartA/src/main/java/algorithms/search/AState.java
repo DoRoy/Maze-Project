@@ -9,13 +9,18 @@ package algorithms.search;
 
 public abstract class AState
 {
+	private int weight;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
 	public AState(){
-		super();
+		weight=0;
+	}
+
+	public AState(int w){
+		weight=w;
 	}
 
 	/**
@@ -25,10 +30,7 @@ public abstract class AState
 	 * @ordered
 	 */
 	
-	public boolean equals() {
-		// TODO implement me
-		return false;
-	}
+	public abstract boolean equals(AState aState) ;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -37,10 +39,12 @@ public abstract class AState
 	 * @ordered
 	 */
 	
-	public int hashCode() {
-		// TODO implement me
-		return 0;
-	}
+	public abstract int hashCode() ;
 
+	public abstract String toString();
+
+	public int getWeight() {
+		return weight;
+	}
 }
 

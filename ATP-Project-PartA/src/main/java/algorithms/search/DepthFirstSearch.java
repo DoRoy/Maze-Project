@@ -1,6 +1,9 @@
 package algorithms.search;
 
 
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
 /**
  * <!-- begin-user-doc -->
  * <!--  end-user-doc  -->
@@ -16,21 +19,23 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 	 */
 	public DepthFirstSearch(){
 		super();
+		stateQueue = new PriorityQueue<AState>();
 	}
 
 	@Override
 	public Solution solve(ISearchable searchable) {
-		return null;
+		ArrayList<AState> list = new ArrayList<AState>();
+
+
+		Solution solution = new Solution(list);
+		return solution;
 	}
 
 	public String getName(){
-		return "";
+		return "Depth First Search";
 	}
 
-	@Override
-	public String getNumberOfNodesEvaluated() {
-		return null;
-	}
+
 
 }
 
