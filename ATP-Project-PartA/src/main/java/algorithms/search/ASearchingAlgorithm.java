@@ -1,6 +1,10 @@
 package algorithms.search;
 
 
+import com.sun.jmx.remote.internal.ArrayQueue;
+
+import java.util.AbstractQueue;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -11,14 +15,9 @@ import java.util.Queue;
 
 public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected int visitedNodes;
+
+	private int visitedNodes;
+	protected AbstractQueue<AState> stateQueue;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,7 +34,8 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 * @generated
 	 */
 	public ASearchingAlgorithm(){
-		super();
+		visitedNodes = 0;
+
 	}
 
 	/**
@@ -46,8 +46,8 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 */
 	
 	protected AState popOpenList() {
-		// TODO implement me
-		return null;
+		visitedNodes++;
+		return stateQueue.poll();
 	}
 
 	/**
@@ -66,9 +66,8 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 * @ordered
 	 */
 	
-	public int getNumberOfVisitedNodes() {
-		// TODO implement me
-		return 0;
+	public int getNumberOfNodesEvaluated() {
+		return visitedNodes;
 	}
 
 }

@@ -32,6 +32,13 @@ public class Position
 
 	/**
 	 * <!-- begin-user-doc -->
+	 *     [1][a][1]
+	 *     [1][b][1]
+	 *     [1][c][1]
+	 *     In this example:
+	 *     'c' is the Parent of 'b'
+	 *     => 'a' is the Opposite of 'b'
+	 *     "Opposite from the Parent's side"
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
@@ -59,6 +66,15 @@ public class Position
 		return new Position(parent);
 	}
 
+	//ToDo Equals and HashCode
+	public boolean equals(Position other){
+		if (other.getRowIndex() == row && other.getColumnIndex()==col)
+			return true;
+		return false;
+	}
 
+	public int hashCode(){
+		return 0;
+	}
 }
 
