@@ -8,7 +8,6 @@ import javax.xml.transform.TransformerException;
 
 
 class MyMazeGeneratorTest {
-    boolean roy;
 /*
 
     @Test
