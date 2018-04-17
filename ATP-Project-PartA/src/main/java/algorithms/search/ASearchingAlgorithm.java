@@ -19,20 +19,6 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	private int visitedNodes;
 	protected AbstractQueue<AState> stateQueue;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected Queue<AState> openList;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public ASearchingAlgorithm(){
 		visitedNodes = 0;
 
