@@ -18,18 +18,33 @@ public class MazeState extends AState {
 	private Position position;
 
 
-	public MazeState(int row, int col, Position parent){
+	public MazeState(int weight,int row, int col, Position parent){
+		super(weight);
 		position = new Position(row,col,parent);
 	}
 
+	public MazeState(int row, int col, Position parent){
+		super();
+		position = new Position(row,col,parent);
+	}
+
+	public MazeState(int weight,Position p){
+		super(weight);
+		position = p;
+	}
+
 	public MazeState(Position p){
+		super();
 		position = p;
 	}
 
 	public MazeState(MazeState other){
+		super(other.getWeight());
 		position = new Position(other.position);
 	}
 
+
+	//Todo Write Equals and HashCode
 	@Override
 	public boolean equals(AState aState) {
 		if (aState instanceof MazeState){
@@ -46,9 +61,9 @@ public class MazeState extends AState {
 	}
 
 	@Override
-	//Todo Write toString!
+	//Todo Write toString - Done
 	public String toString() {
-		return null;
+		return position.toString();
 	}
 
 	public Position getPosition() {

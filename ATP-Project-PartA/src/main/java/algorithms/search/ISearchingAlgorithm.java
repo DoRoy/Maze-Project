@@ -9,14 +9,7 @@ package algorithms.search;
  */
 public  interface ISearchingAlgorithm 
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public int getNumberOfVisitedNodes() ;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -29,7 +22,7 @@ public  interface ISearchingAlgorithm
 
 	public String getName();
 
-	public String getNumberOfNodesEvaluated();
+	public int getNumberOfNodesEvaluated();
 
 
 }

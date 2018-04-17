@@ -9,12 +9,18 @@ package algorithms.search;
 
 public abstract class AState
 {
+	private int weight;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
 	public AState(){
+		weight=0;
+	}
+
+	public AState(int w){
+		weight=w;
 	}
 
 	/**
@@ -37,5 +43,8 @@ public abstract class AState
 
 	public abstract String toString();
 
+	public int getWeight() {
+		return weight;
+	}
 }
 

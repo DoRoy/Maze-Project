@@ -32,6 +32,13 @@ public class Position
 
 	/**
 	 * <!-- begin-user-doc -->
+	 *     [1][a][1]
+	 *     [1][b][1]
+	 *     [1][c][1]
+	 *     In this example:
+	 *     'c' is the Parent of 'b'
+	 *     => 'a' is the Opposite of 'b'
+	 *     "Opposite from the Parent's side"
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
