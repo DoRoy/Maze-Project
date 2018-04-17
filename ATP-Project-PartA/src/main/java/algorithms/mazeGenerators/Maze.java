@@ -42,8 +42,6 @@ public class Maze
 	 * @generated
 	 */
 
-	boolean check;
-
 	public Maze(char[][] map, Position sp, Position gp) {
 	    this.map = map;
 	    startPostion = sp;

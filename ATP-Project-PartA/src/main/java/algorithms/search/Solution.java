@@ -1,6 +1,7 @@
 package algorithms.search;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,15 +14,18 @@ public class Solution
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
-	 * @generated
+	 * @generatedrr
 	 */
-	public Solution(){
-		super();
+
+	private ArrayList<AState> aStateList;
+
+	public Solution(ArrayList<AState> list){
+		aStateList = new ArrayList<AState>(list);
+
 	}
 
 	public ArrayList<AState> getSolutionPath(){
-		//TODO implement me
-		return null;
+		return new ArrayList<AState>(aStateList);
 	}
 
 }
