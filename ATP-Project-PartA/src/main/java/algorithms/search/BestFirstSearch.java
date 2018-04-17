@@ -39,8 +39,5 @@ public class BestFirstSearch extends BreadthFirstSearch
 		return "Best First Search";
 	}
 
-
-
-
 }
 

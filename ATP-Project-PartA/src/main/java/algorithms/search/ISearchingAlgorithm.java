@@ -9,7 +9,7 @@ package algorithms.search;
  */
 public  interface ISearchingAlgorithm 
 {
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->

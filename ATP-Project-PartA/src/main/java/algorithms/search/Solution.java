@@ -14,7 +14,7 @@ public class Solution
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
-	 * @generatedrr
+	 * @generated
 	 */
 
 	private ArrayList<AState> aStateList;

@@ -1,12 +1,7 @@
 package algorithms.search;
 
 
-
-
-import java.util.AbstractQueue;
-import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,14 +11,31 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	protected int visitedNodes;
 
-	private int visitedNodes;
-	protected AbstractQueue<AState> stateQueue;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	protected Queue<AState> openList;
 
-
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 */
 	public ASearchingAlgorithm(){
-		visitedNodes = 0;
-
+		super();
 	}
 
 	/**
@@ -34,8 +46,8 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 */
 	
 	protected AState popOpenList() {
-		visitedNodes++;
-		return stateQueue.poll();
+		// TODO implement me
+		return null;
 	}
 
 	/**
@@ -54,8 +66,9 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 * @ordered
 	 */
 	
-	public int getNumberOfNodesEvaluated() {
-		return visitedNodes;
+	public int getNumberOfVisitedNodes() {
+		// TODO implement me
+		return 0;
 	}
 
 }
