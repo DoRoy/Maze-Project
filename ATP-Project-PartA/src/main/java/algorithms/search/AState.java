@@ -43,6 +43,8 @@ public abstract class AState
 
 	public abstract String toString();
 
+	public abstract AState getPredecessor();
+
 	public int getWeight() {
 		return weight;
 	}

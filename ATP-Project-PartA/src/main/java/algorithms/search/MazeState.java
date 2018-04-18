@@ -57,7 +57,7 @@ public class MazeState extends AState {
 
 	@Override
 	public int hashCode() {
-		return 0;
+		return position.hashCode();
 	}
 
 	@Override
@@ -66,8 +66,17 @@ public class MazeState extends AState {
 		return position.toString();
 	}
 
+	@Override
+	public AState getPredecessor() {
+		if(position.getParent() == null)
+			return null;
+		return new MazeState(position.getParent());
+	}
+
 	public Position getPosition() {
 		return new Position(position);
 	}
+
+
 }
 

@@ -25,9 +25,11 @@ public class Position
 	}
 
 	public Position(Position copiedPosition){
-		row = copiedPosition.row;
-		col = copiedPosition.col;
-		parent = copiedPosition.parent;
+		if(copiedPosition != null) {
+			row = copiedPosition.row;
+			col = copiedPosition.col;
+			parent = copiedPosition.parent;
+		}
 	}
 
 	/**
@@ -63,6 +65,8 @@ public class Position
 	}
 
 	public Position getParent() {
+		if (parent == null)
+			return null;
 		return new Position(parent);
 	}
 
@@ -74,7 +78,10 @@ public class Position
 	}
 
 	public int hashCode(){
-		return 0;
+		int hash = 7;
+		hash = 71 * hash + row;
+		hash = 71 * hash + col;
+		return hash;
 	}
 }
 
