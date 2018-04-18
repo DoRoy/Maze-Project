@@ -68,16 +68,7 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 		return null;
 	}
 
-	private Solution formSolution(AState result) {
-		ArrayList<AState> solutionList = new ArrayList<AState>();
-		solutionList.add(result);
-		AState parent = result.getPredecessor();
-		while(parent != null){
-			solutionList.add(parent);
-			parent = parent.getPredecessor();
-		}
-		return new Solution(solutionList);
-	}
+
 
 	public String getName(){
 		return "Depth First Search";
@@ -91,7 +82,7 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 						{'0','0','0','0','1'},
 						{'1','1','1','E','1'},
 						{'0','0','0','1','1'}};
-		String[] check = {"{0,0}" ,"{1,0}","{2,0}"};
+		String[] check = {"{0,0}" ,"{1,0}", "{2,0}"};
 		Maze maze = new Maze(map,new Position(0,0,null), new Position(4,3,null));
 		ISearchable searchableMaze = new SearchableMaze(maze);
 		DepthFirstSearch dfs = new DepthFirstSearch();
