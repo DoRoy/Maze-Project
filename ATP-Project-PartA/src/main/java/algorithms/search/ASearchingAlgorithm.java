@@ -3,10 +3,7 @@ package algorithms.search;
 
 import com.sun.jmx.remote.internal.ArrayQueue;
 
-import java.util.AbstractQueue;
-import java.util.ArrayList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +62,7 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 			solutionList.add(parent);
 			parent = parent.getPredecessor();
 		}
+		Collections.reverse(solutionList);
 		return new Solution(solutionList);
 	}
 }

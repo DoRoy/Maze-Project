@@ -87,7 +87,7 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 		ISearchable searchableMaze = new SearchableMaze(maze);
 		DepthFirstSearch dfs = new DepthFirstSearch();
 		Solution solution = dfs.solve(searchableMaze);
-
+		System.out.println(solution);
 	}
 }
 
