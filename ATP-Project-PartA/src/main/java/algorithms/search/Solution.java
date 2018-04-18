@@ -21,11 +21,18 @@ public class Solution
 
 	public Solution(ArrayList<AState> list){
 		aStateList = new ArrayList<AState>(list);
-
 	}
 
 	public ArrayList<AState> getSolutionPath(){
 		return new ArrayList<AState>(aStateList);
+	}
+
+
+	public String toString(){
+		String s = "The Solution:\n";
+		for (AState state:aStateList)
+			s += state.toString() + "\n";
+		return s;
 	}
 
 }

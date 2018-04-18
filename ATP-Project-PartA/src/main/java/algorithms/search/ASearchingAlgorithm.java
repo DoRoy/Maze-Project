@@ -1,7 +1,10 @@
 package algorithms.search;
 
 
-import java.util.Queue;
+
+import javafx.print.Collation;
+
+import java.util.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,31 +14,13 @@ import java.util.Queue;
 
 public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected int visitedNodes;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	protected Queue<AState> openList;
+	private int visitedNodes;
+	protected AbstractQueue<AState> stateQueue;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public ASearchingAlgorithm(){
-		super();
+		visitedNodes = 0;
+
 	}
 
 	/**
@@ -46,8 +31,8 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 */
 	
 	protected AState popOpenList() {
-		// TODO implement me
-		return null;
+		visitedNodes++;
+		return stateQueue.poll();
 	}
 
 	/**
@@ -66,10 +51,20 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 * @ordered
 	 */
 	
-	public int getNumberOfVisitedNodes() {
-		// TODO implement me
-		return 0;
+	public int getNumberOfNodesEvaluated() {
+		return visitedNodes;
 	}
 
+	protected Solution formSolution(AState result) {
+		ArrayList<AState> solutionList = new ArrayList<AState>();
+		solutionList.add(result);
+		AState parent = result.getPredecessor();
+		while(parent != null){
+			solutionList.add(parent);
+			parent = parent.getPredecessor();
+		}
+		Collections.reverse(solutionList);
+		return new Solution(solutionList);
+	}
 }
 

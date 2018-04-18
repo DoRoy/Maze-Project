@@ -1,14 +1,16 @@
 package algorithms.mazeGenerators;
 
-
+import org.junit.jupiter.api.Test;
 
 import javax.xml.transform.ErrorListener;
 import javax.xml.transform.TransformerException;
 
+import java.util.Vector;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 class MyMazeGeneratorTest {
-/*
+
 
     @Test
     void testRunTime() {
@@ -53,7 +55,4 @@ class MyMazeGeneratorTest {
     }
 
 
-    int x=0;
-
-    */
 }
