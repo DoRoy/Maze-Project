@@ -65,7 +65,7 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
 		while (!stateQueue.isEmpty()) {
 
 
-			AState currentState = popOpenList();
+			AState currentState = popStateQueue();
 			//visited.add(currentState);
 
 			if (currentState.hashCode() == goalState.hashCode())

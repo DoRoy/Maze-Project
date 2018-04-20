@@ -13,11 +13,13 @@ public class Position
 	private Integer col;
 	private Position parent;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+
+	public Position(int x, int y){
+		row = x;
+		col = y;
+		this.parent = null;
+	}
+
 	public Position(int x, int y, Position parent){
 		row = x;
 		col = y;
@@ -52,17 +54,15 @@ public class Position
 			return new Position(this.row, this.col + this.col.compareTo(parent.col), this);
 		return null;
 	}
-	public int getRowIndex() {
-		return row;
-	}
+
+	/*** Getters ***/
+
+	public int getRowIndex() {	return row;	}
 
 	public int getColumnIndex() {
 		return col;
 	}
 
-	public String toString(){
-		return "{" + row +"," + col + "}";
-	}
 
 	public Position getParent() {
 		if (parent == null)
@@ -70,7 +70,11 @@ public class Position
 		return new Position(parent);
 	}
 
-	//ToDo Equals and HashCode
+	public String toString(){
+		return "{" + row +"," + col + "}";
+	}
+
+	//** Equals and HashCode **
 	public boolean equals(Position other){
 		if (other.getRowIndex() == row && other.getColumnIndex()==col)
 			return true;

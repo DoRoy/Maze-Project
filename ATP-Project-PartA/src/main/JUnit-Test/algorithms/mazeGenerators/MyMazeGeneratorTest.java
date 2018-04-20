@@ -5,12 +5,26 @@ import org.junit.jupiter.api.Test;
 import javax.xml.transform.ErrorListener;
 import javax.xml.transform.TransformerException;
 
+import java.util.Random;
 import java.util.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyMazeGeneratorTest {
 
+
+    @Test
+    void binNumber() {
+        Random rg = new Random();
+        int m = 100;
+        String s = "";
+
+        while (s.length()<m)
+            s+=Integer.toString(rg.nextInt(2));;
+
+        System.out.println("After: " +s.length());
+        System.out.println(s);
+    }
 
     @Test
     void testRunTime() {

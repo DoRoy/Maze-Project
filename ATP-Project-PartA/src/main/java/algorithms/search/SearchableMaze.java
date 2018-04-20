@@ -7,21 +7,10 @@ import algorithms.mazeGenerators.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class SearchableMaze implements ISearchable
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	private Maze maze;
 	private MazeState startState;
 	private MazeState goalState;
@@ -77,18 +66,11 @@ public class SearchableMaze implements ISearchable
 	 * @generated
 	 * @ordered
 	 */
-	
+
+	/*** Getters ***/
 	public AState getGoalState() {
 		return new MazeState(goalState);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-
 	public AState getStartState() {
 		return new MazeState(startState);
 	}

@@ -6,11 +6,7 @@ import javafx.print.Collation;
 
 import java.util.*;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+
 
 public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 {
@@ -20,7 +16,6 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 
 	public ASearchingAlgorithm(){
 		visitedNodes = 0;
-
 	}
 
 	/**
@@ -30,30 +25,28 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 * @ordered
 	 */
 	
-	protected AState popOpenList() {
+	protected AState popStateQueue() {
 		visitedNodes++;
 		return stateQueue.poll();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+
 	
 	public abstract Solution solve(ISearchable searchable) ;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
 	public int getNumberOfNodesEvaluated() {
 		return visitedNodes;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 *     This method receives a AState (the goalState)
+	 *     It adds to a list all the "Predecessors" until the startState
+	 *     Returns a list of all the states from start to goal as a Solution
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
 
 	protected Solution formSolution(AState result) {
 		ArrayList<AState> solutionList = new ArrayList<AState>();
@@ -63,6 +56,7 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 			solutionList.add(parent);
 			parent = parent.getPredecessor();
 		}
+		// Reverse list
 		Collections.reverse(solutionList);
 		return new Solution(solutionList);
 	}

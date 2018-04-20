@@ -3,19 +3,9 @@ package algorithms.search;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class Solution
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 
 	private ArrayList<AState> aStateList;
 
@@ -28,10 +18,29 @@ public class Solution
 	}
 
 
+	/**
+	 * <!-- begin-user-doc -->
+	 *     Print Format:
+	 *
+	 *     "Solution path:
+	 		0. {3,0}
+	 		1. {3,1}
+	 		2. {3,2}
+	 		3. {3,3}
+	 		4. {3,4}
+	 		5. {2,4}
+	 		6. {1,4}"
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 */
 	public String toString(){
-		String s = "The Solution:\n";
-		for (AState state:aStateList)
+		int stateCount = 0;
+		String s = "Solution path:\n";
+		for (AState state:aStateList) {
+			s += stateCount;
+			stateCount++;
 			s += state.toString() + "\n";
+		}
 		return s;
 	}
 
