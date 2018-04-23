@@ -1,20 +1,11 @@
 package algorithms.search;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
 public abstract class AState
 {
+	// Weight is used to allow Priority Queue
 	private int weight;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+
 	public AState(){
 		weight=0;
 	}
@@ -23,26 +14,13 @@ public abstract class AState
 		weight=w;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+	/*** Equals and HashCode ***/
 	public abstract boolean equals(AState aState) ;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public abstract int hashCode() ;
 
 	public abstract String toString();
 
+	/*** Getters ***/
 	public abstract AState getPredecessor();
 
 	public int getWeight() {

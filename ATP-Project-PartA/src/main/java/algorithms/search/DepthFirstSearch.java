@@ -16,11 +16,7 @@ import java.util.PriorityQueue;
 
 public class DepthFirstSearch extends ASearchingAlgorithm
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+
 	private HashMap<Integer,Boolean> visited;
 
 	public DepthFirstSearch(){
@@ -31,7 +27,6 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 	@Override
 	public Solution solve(ISearchable searchable) {
 		AState curLoc = searchable.getStartState();
-		stateQueue.add(curLoc);
 		ArrayList<AState> neighbors = searchable.getAllPossibleStates(curLoc);
 		visited = new HashMap<Integer, Boolean>();
 		visited.put(curLoc.hashCode(),true);
@@ -52,6 +47,7 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 
 
 	private AState DFSVisit(ISearchable searchable, AState neighborState) {
+		visitedNodes++;
 		visited.put(neighborState.hashCode(), true);
 		for (AState neighbor: searchable.getAllPossibleStates(neighborState)) {
 			if(!visited.containsKey(neighbor.hashCode()))
@@ -63,7 +59,6 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 				if (ans != null)
 					return ans;
 			}
-
 		}
 		return null;
 	}
@@ -88,6 +83,7 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 		DepthFirstSearch dfs = new DepthFirstSearch();
 		Solution solution = dfs.solve(searchableMaze);
 		System.out.println(solution);
+		System.out.println("Nodes Visited: " + dfs.getNumberOfNodesEvaluated());
 	}
 }
 

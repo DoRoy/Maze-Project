@@ -3,20 +3,13 @@ package algorithms.search;
 
 import algorithms.mazeGenerators.Position;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class MazeState extends AState {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+
 	private Position position;
 
+	/*** Constructors ***/
+	// Weight is used to allow Priority Queue
 
 	public MazeState(int weight,int row, int col, Position parent){
 		super(weight);
@@ -42,7 +35,6 @@ public class MazeState extends AState {
 		super(other.getWeight());
 		position = new Position(other.position);
 	}
-
 
 	//Todo Write Equals and HashCode
 	@Override

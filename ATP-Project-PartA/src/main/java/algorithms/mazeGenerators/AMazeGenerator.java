@@ -1,31 +1,20 @@
 package algorithms.mazeGenerators;
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+
 
 public abstract class AMazeGenerator implements IMazeGenerator
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+
 	public AMazeGenerator(){
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	public abstract Maze generate(int rows, int cols) ;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
+
+
+	/**    This method measures how long it takes to generate a random maze.
+	 *     It samples the time before the "generate" command is called.
+	 *     It samples the time after the maze is made.
+	 *     Returns the subtraction between the two samples (long)
 	 * @generated
 	 * @ordered
 	 */
@@ -34,7 +23,6 @@ public abstract class AMazeGenerator implements IMazeGenerator
 		long start = System.currentTimeMillis();
 		generate(rows, cols);
 		long finished = System.currentTimeMillis();
-		//System.out.println("Testing time: " + (finished - start) + " MilliSeconds");
 		return finished - start;
 	}
 

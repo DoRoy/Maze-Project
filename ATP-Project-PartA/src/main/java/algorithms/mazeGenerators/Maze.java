@@ -1,46 +1,21 @@
 package algorithms.mazeGenerators;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+/**    The maze is represented as a 2D char array.
+ *     Zero ('0') = Pass
+ *     One ('1') = Wall
+ *     Start ('S') = The starting position
+ *     End ('E') = The "Goal" position
  */
-
 public class Maze
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+
+
 	
 	private char[][] map;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	private Position startPostion;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	private Position goalPosition;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 
 	public Maze(char[][] map, Position sp, Position gp) {
 	    this.map = map;
@@ -48,12 +23,7 @@ public class Maze
 	    goalPosition = gp;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	/*** Getters ***/
 	
 	public Position getStartPosition() {
         return new Position(startPostion);
@@ -64,11 +34,18 @@ public class Maze
 		return new Position(goalPosition);
 	}
 
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
+	 *     Print method: simply prints the char 2D array values
+	 *     Example: A random maze (6 by 6)
+	 *
+	 *     			011101
+	 *     			S00101
+	 *     			010001
+	 *     			001111
+	 *     			100E00
+	 *     			110110
+
 	 */
 	
 	public void print() {
@@ -79,6 +56,13 @@ public class Maze
         }
 	}
 
+
+
+	/**
+	 *     If row and column are inside the maze's boarders,
+	 *     returns the char in that position.
+	 *     else '\0'
+	 */
 	public char getCharAt(int row, int col){
 		if ((row < map.length && col < map[0].length) && row >= 0 && col >= 0){
 			return map[row][col];

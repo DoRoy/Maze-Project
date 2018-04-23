@@ -13,11 +13,13 @@ public class Position
 	private Integer col;
 	private Position parent;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+
+	public Position(int x, int y){
+		row = x;
+		col = y;
+		this.parent = null;
+	}
+
 	public Position(int x, int y, Position parent){
 		row = x;
 		col = y;
@@ -33,7 +35,6 @@ public class Position
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
 	 *     [1][a][1]
 	 *     [1][b][1]
 	 *     [1][c][1]
@@ -41,9 +42,6 @@ public class Position
 	 *     'c' is the Parent of 'b'
 	 *     => 'a' is the Opposite of 'b'
 	 *     "Opposite from the Parent's side"
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
 	 */
 	public Position opposite() {
 		if (this.row.compareTo(parent.row) != 0)
@@ -52,17 +50,15 @@ public class Position
 			return new Position(this.row, this.col + this.col.compareTo(parent.col), this);
 		return null;
 	}
-	public int getRowIndex() {
-		return row;
-	}
+
+	/*** Getters ***/
+
+	public int getRowIndex() {	return row;	}
 
 	public int getColumnIndex() {
 		return col;
 	}
 
-	public String toString(){
-		return "{" + row +"," + col + "}";
-	}
 
 	public Position getParent() {
 		if (parent == null)
@@ -70,7 +66,11 @@ public class Position
 		return new Position(parent);
 	}
 
-	//ToDo Equals and HashCode
+	public String toString(){
+		return "{" + row + "," + col + "}";
+	}
+
+	//** Equals and HashCode **
 	public boolean equals(Position other){
 		if (other.getRowIndex() == row && other.getColumnIndex()==col)
 			return true;
@@ -78,10 +78,9 @@ public class Position
 	}
 
 	public int hashCode(){
-		int hash = 7;
-		hash = 71 * hash + row;
-		hash = 71 * hash + col;
-		return hash;
+		int upTo = 1009;
+		return (int)Math.pow(upTo,2) + upTo * row + col;
 	}
+
 }
 

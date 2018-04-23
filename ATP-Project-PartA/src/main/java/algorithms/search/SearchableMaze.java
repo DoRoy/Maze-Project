@@ -7,21 +7,10 @@ import algorithms.mazeGenerators.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class SearchableMaze implements ISearchable
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
+
 	private Maze maze;
 	private MazeState startState;
 	private MazeState goalState;
@@ -57,11 +46,24 @@ public class SearchableMaze implements ISearchable
 		char[] validChars = {'0','E','S'};
 		for(int x = -1; x <= 1; x++){
 			for(int y = -1; y <= 1; y++){
-				if (x == 0 && y == 0 || x != 0 && y != 0) //same location
+				if (x == 0 && y == 0) //same location
 					continue;
-
+				if (x != 0 && y != 0) { // slant
+					if (mazeCharCheck(curRow + x,curCol + y)) // checks if its a wall if so wont take it
+						if (mazeCharCheck(curRow ,curCol + y)){ // checks if at the same row we have 0
+							list.add(new MazeState(15,curRow + x, curCol + y, curPos));
+							continue;
+						}
+						else if (mazeCharCheck(curRow + x,curCol)){ // checks if at the same col we have 0
+							list.add(new MazeState(15,curRow + x, curCol + y, curPos));
+							continue;
+						}
+						else{
+							continue;
+						}
+				}
 				else if(mazeCharCheck(curRow + x,curCol + y)) // if its not slant, same location and it have '0'
-					list.add(new MazeState(curRow + x, curCol + y, curPos));
+					list.add(new MazeState(10,curRow + x, curCol + y, curPos));
 			}
 		}
 		return list;
@@ -77,18 +79,12 @@ public class SearchableMaze implements ISearchable
 	 * @generated
 	 * @ordered
 	 */
-	
+
+	/*** Getters ***/
 	public AState getGoalState() {
 		return new MazeState(goalState);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public AState getStartState() {
 		return new MazeState(startState);
 	}
