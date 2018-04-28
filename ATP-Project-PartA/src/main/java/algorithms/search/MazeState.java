@@ -3,13 +3,19 @@ package algorithms.search;
 
 import algorithms.mazeGenerators.Position;
 
-
+/**
+ * Represents a state in a 2D maze.
+ */
 public class MazeState extends AState {
 
+	/**
+	 * The position of the state.
+	 */
 	private Position position;
 
 	/*** Constructors ***/
 	// Weight is used to allow Priority Queue
+
 
 	public MazeState(int weight,int row, int col, Position parent){
 		super(weight);
@@ -23,7 +29,7 @@ public class MazeState extends AState {
 
 	public MazeState(int weight,Position p){
 		super(weight);
-		position = p;
+		position = new Position(p);
 	}
 
 	public MazeState(Position p){
@@ -31,15 +37,19 @@ public class MazeState extends AState {
 		position = p;
 	}
 
+	/**
+	 * Copy Constructor.
+	 * @param other The MazeState we wish to copy.
+	 */
 	public MazeState(MazeState other){
 		super(other.getWeight());
 		position = new Position(other.position);
 	}
 
-	//Todo Write Equals and HashCode
+
 	@Override
-	public boolean equals(AState aState) {
-		if (aState instanceof MazeState){
+	public boolean equals(Object aState) {
+		if (aState instanceof MazeState && aState != null){
 			MazeState mState = (MazeState)aState;
 			if (mState.position.equals(position))
 				return true;
@@ -53,7 +63,6 @@ public class MazeState extends AState {
 	}
 
 	@Override
-	//Todo Write toString - Done
 	public String toString() {
 		return position.toString();
 	}
@@ -68,7 +77,6 @@ public class MazeState extends AState {
 	public Position getPosition() {
 		return new Position(position);
 	}
-
 
 }
 

@@ -32,8 +32,12 @@ public class SimpleMazeGenerator extends AMazeGenerator
 
 		maz[startPosition.getRowIndex()][startPosition.getColumnIndex()] = 'S';
 		maz[goalPosition.getRowIndex()][goalPosition.getColumnIndex()] = 'E';
-
-		return new Maze(maz,startPosition,goalPosition);
+		try {
+			return new Maze(maz, startPosition, goalPosition);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+			return null;
+		}
 	}
 
 

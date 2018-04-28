@@ -7,29 +7,26 @@ import java.util.*;
 import java.util.concurrent.LinkedTransferQueue;
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Represents the BreadthFirstSearch algorithm.
+ * Inherits ASearchingAlgorithm.
  */
-
 public class BreadthFirstSearch extends ASearchingAlgorithm {
 
 
+	/**
+	 * Constructor that will initialize what it need to solve the searchable problem.
+	 */
 	public BreadthFirstSearch() {
 		super();
 		stateQueue = new LinkedTransferQueue<AState>();
 	}
 
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 *
-	 * @generated
-	 */
+
 	@Override
 	public Solution solve(ISearchable searchable) {
-		ArrayList<AState> list = new ArrayList<AState>();
+		if (searchable == null)
+			return null;
 
 		AState result = BFS(searchable);
 
@@ -37,6 +34,12 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
 		return solution;
 	}
 
+
+	/**
+	 * The actual BFS algorithm.
+	 * @param searchable
+	 * @return
+	 */
 	private AState BFS(ISearchable searchable) {
 		AState result = null;
 		HashSet<Integer> visited = new HashSet<Integer>();
@@ -70,7 +73,6 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
 
 
 	public String getName(){
-
 		return "Breadth First Search";
 	}
 
@@ -83,7 +85,9 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
 				        {'0','0','0','0','1'},
 				        {'1','1','1','E','1'},
 				        {'0','0','0','1','1'}};
-		Maze maze = new Maze(map,new Position(0,0,null), new Position(4,3,null));
+		try {
+			Maze maze = new Maze(map, new Position(0, 0, null), new Position(4, 3, null));
+		}catch (Exception e){}
 		MyMazeGenerator mg = new MyMazeGenerator();
 		Maze maze2 = mg.generate(1000,1000);
 		ISearchable searchableMaze = new SearchableMaze(maze2);

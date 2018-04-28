@@ -19,7 +19,12 @@ class SearchableMazeTest {
                          {'0','0','0','E','1'},
                          {'0','0','0','1','1'}};
         String[] check = {"{0,0}" ,"{1,0}","{2,0}"};
-        Maze maze = new Maze(map,new Position(1,1,null), new Position(0,0,null));
+        Maze maze = null;
+        try {
+            maze = new Maze(map, new Position(0, 0, null), new Position(4, 3, null));
+        }catch (Exception e){
+
+        }
         ISearchable searchableMaze = new SearchableMaze(maze);
         ArrayList<AState> list = searchableMaze.getAllPossibleStates(new MazeState(1,1,new Position(0,0,null)));
         for (int i = 0; i < 3 ;i++) {

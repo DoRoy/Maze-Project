@@ -25,7 +25,7 @@ class MyMazeGeneratorTest {
 
         while(count<rounds){
             checkTime = myMaze.measureAlgorithmTimeMillis(1000,1000);
-            test = checkTime < 1000;
+            test = checkTime < 60000;
             if (test){
                 successes++;
                 avgTime += checkTime;

@@ -19,7 +19,7 @@ class SimpleMazeGeneratorTest {
 
         while(count<rounds){
             checkTime = simpleMaze.measureAlgorithmTimeMillis(1000,1000);
-            test = checkTime < 1000;
+            test = checkTime < 60000;
             if (test){
                 successes++;
                 avgTime+= checkTime;

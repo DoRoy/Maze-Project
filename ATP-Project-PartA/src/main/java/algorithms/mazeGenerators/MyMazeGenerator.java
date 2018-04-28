@@ -1,7 +1,9 @@
 package algorithms.mazeGenerators;
 import java.util.*;
 
-
+/**
+ * This class creates random Maze with Prim algorithm for generating mazes.
+ */
 public class MyMazeGenerator extends AMazeGenerator
 {
 
@@ -55,8 +57,11 @@ public class MyMazeGenerator extends AMazeGenerator
 			}
 		}
 
-
-		return new Maze(maz,startPosition,goalPosition);
+		try {
+			return new Maze(maz, startPosition, goalPosition);
+		}catch (Exception e){
+			return null;
+		}
 	}
 
 	private void iterate(char[][] maz,Position p, ArrayList<Position> frontier){

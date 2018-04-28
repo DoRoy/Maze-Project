@@ -1,13 +1,15 @@
 package algorithms.search;
 
-
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.Position;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
+/**
+ * Representing a searchable 2D maze.
+ * Implements iSearchable.
+ */
 public class SearchableMaze implements ISearchable
 {
 
@@ -16,26 +18,20 @@ public class SearchableMaze implements ISearchable
 	private MazeState goalState;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * Constructor
+	 * @param maze A Maze.
 	 */
 	public SearchableMaze(Maze maze){
+		if (maze == null)
+			return;
 		this.maze = maze;
 		startState = new MazeState(maze.getStartPosition());
 		goalState = new MazeState(maze.getGoalPosition());
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 
-	//Todo Write this function - Test
 	public ArrayList<AState> getAllPossibleStates(AState currentState) {
-		if (!(currentState instanceof MazeState)){
+		if (!(currentState instanceof MazeState) || currentState == null){
 			return null;
 		}
 		ArrayList<AState> list = new ArrayList<AState>();
@@ -69,18 +65,21 @@ public class SearchableMaze implements ISearchable
 		return list;
 	}
 
+	/**
+	 * Checks if the given parameters represents a valid cell to move to in the maze.
+	 * @param row The Row it checks.
+	 * @param col The Column it checks.
+	 * @return true given parameters represent a cell open in the maze, false otherwise.
+	 */
 	private boolean mazeCharCheck(int row, int col){
-		return "E0S".contains(String.valueOf(maze.getCharAt(row, col)));
+		try {
+			return "E0S".contains(String.valueOf(maze.getCharAt(row, col)));
+		}catch (Exception e){
+			return false;
+		}
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 
-	/*** Getters ***/
 	public AState getGoalState() {
 		return new MazeState(goalState);
 	}
