@@ -55,6 +55,7 @@ public class Position
 	 *     => 'a' is the Opposite of 'b'
 	 *     "Opposite from the Parent's side"
 	 */
+/*
 	public Position opposite() {
 		if (this.row.compareTo(parent.row) != 0)
 			return new Position(this.row + this.row.compareTo(parent.row), this.col, this);
@@ -62,12 +63,12 @@ public class Position
 			return new Position(this.row, this.col + this.col.compareTo(parent.col), this);
 		return null;
 	}
-
+*/
 	/*** Getters ***/
 
-	public int getRowIndex() {	return row;	}
+	public Integer getRowIndex() {	return row;	}
 
-	public int getColumnIndex() {
+	public Integer getColumnIndex() {
 		return col;
 	}
 

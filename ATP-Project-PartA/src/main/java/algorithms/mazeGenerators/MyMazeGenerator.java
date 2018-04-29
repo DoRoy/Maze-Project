@@ -33,7 +33,7 @@ public class MyMazeGenerator extends AMazeGenerator
 
 			// Pick current node at random
 			Position cu = frontier.remove((int) (Math.random() * frontier.size()));
-			Position op = cu.opposite();
+			Position op = opposite(cu);
 			try {
 				// If both node and its opposite are walls
 				if (maz[cu.getRowIndex()][cu.getColumnIndex()] == '1') {
@@ -77,7 +77,19 @@ public class MyMazeGenerator extends AMazeGenerator
 				// Add eligible points to frontier
 				frontier.add(new Position(p.getRowIndex() + x, p.getColumnIndex() + y, p));
 			}
+	}
+
+
+	public Position opposite(Position p) {
+		if(p != null && p.getParent() != null) {
+			if (p.getRowIndex().compareTo(p.getParent().getRowIndex()) != 0)
+				return new Position(p.getRowIndex() + p.getRowIndex().compareTo(p.getParent().getRowIndex()), p.getColumnIndex(), p);
+			if (p.getColumnIndex().compareTo(p.getParent().getColumnIndex()) != 0)
+				return new Position(p.getRowIndex(), p.getColumnIndex() + p.getColumnIndex().compareTo(p.getParent().getColumnIndex()), p);
 		}
+		return null;
+	}
+
 
 }
 

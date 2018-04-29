@@ -2,6 +2,8 @@ package algorithms.search;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import java.util.concurrent.atomic.AtomicLong;
+
 
 /**
  * Represents the BestFirstSearch algorithm.
@@ -9,6 +11,8 @@ import java.util.PriorityQueue;
  */
 public class BestFirstSearch extends BreadthFirstSearch
 {
+
+
 
 	/**
 	 * Constructor that will initialize what it need to solve the searchable problem.
@@ -23,10 +27,11 @@ public class BestFirstSearch extends BreadthFirstSearch
 				if(o1.getWeight() > o2.getWeight())
 					return 1;
 
-				return 1; // TODO ROY: i did it to 1 so if they are equals it will put a new state after what already in the queue.
+				return 0;
 			}
 		};
 		stateQueue = new PriorityQueue<AState>(comparator);
+
 	}
 
 
