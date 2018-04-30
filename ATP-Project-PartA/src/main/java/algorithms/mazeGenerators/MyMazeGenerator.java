@@ -11,7 +11,10 @@ public class MyMazeGenerator extends AMazeGenerator
 	}
 
 	@Override
-	public Maze generate(int row, int col) {
+	public Maze generate(int row, int col){
+		if(row < 1 || col < 1)
+			return null;
+
 		// Build maze and initialize with only walls ('1')
 		StringBuilder s = new StringBuilder(col);
 		for (int x = 0; x < col; x++)

@@ -17,23 +17,13 @@ public class MazeState extends AState {
 	// Weight is used to allow Priority Queue
 
 
-	public MazeState(int weight,int row, int col, Position parent){
-		super(weight);
-		position = new Position(row,col,parent);
-	}
-
-	public MazeState(int row, int col, Position parent){
-		super();
-		position = new Position(row,col,parent);
-	}
-
 	public MazeState(int weight,Position p){
-		super(weight);
+		super(p.toString() ,weight);
 		position = new Position(p);
 	}
 
 	public MazeState(Position p){
-		super();
+		super(p.toString());
 		position = p;
 	}
 
@@ -41,20 +31,11 @@ public class MazeState extends AState {
 	 * Copy Constructor.
 	 * @param other The MazeState we wish to copy.
 	 */
-	public MazeState(MazeState other){
-		super(other.getWeight());
+
+
+	public MazeState(MazeState other) {
+		super(other.toString(), other.getWeight());
 		position = new Position(other.position);
-	}
-
-
-	@Override
-	public boolean equals(Object aState) {
-		if (aState instanceof MazeState && aState != null){
-			MazeState mState = (MazeState)aState;
-			if (mState.position.equals(position))
-				return true;
-		}
-		return false;
 	}
 
 	@Override

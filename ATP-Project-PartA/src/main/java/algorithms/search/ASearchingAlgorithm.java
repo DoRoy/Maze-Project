@@ -34,6 +34,11 @@ public abstract class ASearchingAlgorithm implements ISearchingAlgorithm
 	 */
 	public abstract Solution solve(ISearchable searchable) ;
 
+	protected void clear(){
+		visitedNodes = 0;
+		stateQueue.clear();
+	}
+
 
 	/**
 	 * Gets the number of nodes the algorithm visited.

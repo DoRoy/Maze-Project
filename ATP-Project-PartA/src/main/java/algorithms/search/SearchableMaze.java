@@ -22,12 +22,26 @@ public class SearchableMaze implements ISearchable
 	 * @param maze A Maze.
 	 */
 	public SearchableMaze(Maze maze){
-		if (maze == null)
-			return;
 		this.maze = maze;
 		startState = new MazeState(maze.getStartPosition());
 		goalState = new MazeState(maze.getGoalPosition());
 	}
+
+/*
+	public SearchableMaze(Maze maze){
+		neverNull(maze);
+		this.maze = maze;
+		startState = new MazeState(maze.getStartPosition());
+		goalState = new MazeState(maze.getGoalPosition());
+	}
+
+	private static <S extends Maze> S neverNull(S notNull) {
+		if (notNull == null) {
+			throw new NullPointerException();
+		}
+		return notNull;
+	}
+*/
 
 
 	public ArrayList<AState> getAllPossibleStates(AState currentState) {
@@ -39,7 +53,7 @@ public class SearchableMaze implements ISearchable
 		Position curPos = curMazeState.getPosition();
 		int curRow = curPos.getRowIndex();
 		int curCol = curPos.getColumnIndex();
-		char[] validChars = {'0','E','S'};
+		int curWeigh = currentState.getWeight();
 		for(int x = -1; x <= 1; x++){
 			for(int y = -1; y <= 1; y++){
 				if (x == 0 && y == 0) //same location
@@ -47,11 +61,11 @@ public class SearchableMaze implements ISearchable
 				if (x != 0 && y != 0) { // slant
 					if (mazeCharCheck(curRow + x,curCol + y)) // checks if its a wall if so wont take it
 						if (mazeCharCheck(curRow ,curCol + y)){ // checks if at the same row we have 0
-							list.add(new MazeState(15,curRow + x, curCol + y, curPos));
+							list.add(new MazeState(curWeigh + 15,new Position(curRow + x, curCol + y, curPos)));
 							continue;
 						}
 						else if (mazeCharCheck(curRow + x,curCol)){ // checks if at the same col we have 0
-							list.add(new MazeState(15,curRow + x, curCol + y, curPos));
+							list.add(new MazeState(curWeigh + 15,new Position(curRow + x, curCol + y, curPos)));
 							continue;
 						}
 						else{
@@ -59,7 +73,7 @@ public class SearchableMaze implements ISearchable
 						}
 				}
 				else if(mazeCharCheck(curRow + x,curCol + y)) // if its not slant, same location and it have '0'
-					list.add(new MazeState(10,curRow + x, curCol + y, curPos));
+					list.add(new MazeState(curWeigh + 10,new Position(curRow + x, curCol + y, curPos)));
 			}
 		}
 		return list;

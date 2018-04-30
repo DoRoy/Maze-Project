@@ -74,8 +74,9 @@ class JUnitTestingBestFirstSearch {
     @Test
     void testMazeWithNull(){
         SearchableMaze sm = null;
+        Maze maze = null;
         try {
-            Maze maze = new Maze(null, new Position(0, 0, null), new Position(4, 3, null));
+            maze = new Maze(null, new Position(0, 0, null), new Position(4, 3, null));
             sm = new SearchableMaze(maze);
         }catch (Exception e){}
         BestFirstSearch bestfs = new BestFirstSearch();
@@ -253,6 +254,25 @@ class JUnitTestingBestFirstSearch {
             System.out.println("BestFirstSearch testInvalidMap test PASSED!");
         else
             System.out.println("BestFirstSearch testInvalidMap test FAILED!");
+        assertTrue(test);
+    }
+
+    @Test
+    void testMultipleUses(){
+        MyMazeGenerator mg = new MyMazeGenerator();
+        Maze maze = mg.generate(30,30 );
+        SearchableMaze sm = new SearchableMaze(maze);
+        BestFirstSearch bestFS = new BestFirstSearch();
+        bestFS.solve(sm);
+
+        int numOfEvaluatedNodes = bestFS.getNumberOfNodesEvaluated();
+        
+        bestFS.solve(sm);
+        boolean test = numOfEvaluatedNodes == bestFS.getNumberOfNodesEvaluated();
+        if (test)
+            System.out.println("BestFirstSearch testMultipleUses test PASSED!");
+        else
+            System.out.println("BestFirstSearch testMultipleUses test FAILED!");
         assertTrue(test);
     }
 }

@@ -28,7 +28,7 @@ public class DepthFirstSearch extends ASearchingAlgorithm
 	public Solution solve(ISearchable searchable) {
 		if (searchable == null)
 			return null;
-
+		clear();
 		AState curLoc = searchable.getStartState();
 		ArrayList<AState> neighbors = searchable.getAllPossibleStates(curLoc);
 		visited = new HashMap<Integer, Boolean>();

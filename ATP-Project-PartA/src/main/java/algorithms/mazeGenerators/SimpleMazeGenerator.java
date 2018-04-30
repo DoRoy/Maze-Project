@@ -16,6 +16,9 @@ public class SimpleMazeGenerator extends AMazeGenerator
 
 	@Override
 	public Maze generate(int col, int row) {
+		if(row < 1 || col < 1)
+			return null;
+
 		char[][] maz = new char[row][col];
 		// Init maze ( 2D char array ) with random '0's and '1's
 		for (int i = 0; i < row; i++) maz[i] = randomBinnaryString(col).toCharArray();

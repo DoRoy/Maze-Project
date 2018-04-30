@@ -27,7 +27,7 @@ public class BreadthFirstSearch extends ASearchingAlgorithm {
 	public Solution solve(ISearchable searchable) {
 		if (searchable == null)
 			return null;
-
+		clear();
 		AState result = BFS(searchable);
 
 		Solution solution = formSolution(result);;
